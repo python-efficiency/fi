@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
@@ -8,6 +8,12 @@ jobs:
       - run: pip3 install twine
       - run: echo "$CIRCLE_TAG" > VERSION.txt
       - run: twine upload -u "python-efficiency" -p "$PYPI_PASSWORD" "dist/*"
-    filters:
-      tags:
-        only: /.*/
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
