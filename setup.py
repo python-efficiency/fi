@@ -6,7 +6,7 @@ def get_version_from_file():
       return tag
 
 
-setup(name='dv',
+setup(name='fi',
       version=get_version_from_file(),
       description='The file open library the government doesn\'t want you to know about',
       url='https://github.com/python-efficiency/fi',
