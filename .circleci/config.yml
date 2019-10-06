@@ -16,5 +16,7 @@ workflows:
     jobs:
       - build:
           filters:
-            tags:
+            tags: # run on all tags
               only: /.*/
+            branches: # do not run on any branch
+              ignore: /.*/
