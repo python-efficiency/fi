@@ -1,13 +1,13 @@
 version: 2.1
-  jobs:
-    build:
-      docker:
-        - image: circleci/python:3.7.4
-      steps:
-        - checkout
-        - run: pip3 install twine
-        - run: echo "$CIRCLE_TAG" > VERSION.txt
-        - run: twine upload -u "python-efficiency" -p "$PYPI_PASSWORD" "dist/*"
-      filters:
-        tags:
-          only: /.*/
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7.4
+    steps:
+      - checkout
+      - run: pip3 install twine
+      - run: echo "$CIRCLE_TAG" > VERSION.txt
+      - run: twine upload -u "python-efficiency" -p "$PYPI_PASSWORD" "dist/*"
+    filters:
+      tags:
+        only: /.*/
