@@ -7,6 +7,7 @@ jobs:
       - checkout
       - run: pip3 install twine
       - run: echo "$CIRCLE_TAG" > VERSION.txt
+      - run: python3 setup.py sdist
       - run: twine upload -u "python-efficiency" -p "$PYPI_PASSWORD" "dist/*"
 
 workflows:
